@@ -1,0 +1,1500 @@
+definitions:
+  controller.ChangePasswordInput:
+    properties:
+      password:
+        type: string
+    required:
+    - password
+    type: object
+  controller.LoginInput:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  controller.RegisterInput:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - email
+    - password
+    - username
+    type: object
+  controller.ageRatingCategoryInput:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    type: object
+  controller.developerInput:
+    properties:
+      name:
+        type: string
+    type: object
+  controller.gameInput:
+    properties:
+      about:
+        type: string
+      age_rating_category_id:
+        type: integer
+      developer_id:
+        type: integer
+      genre_id:
+        type: integer
+      publisher_id:
+        type: integer
+      title:
+        type: string
+      year:
+        type: integer
+    type: object
+  controller.genreInput:
+    properties:
+      name:
+        type: string
+    type: object
+  controller.maximumSpecificationInput:
+    properties:
+      directx:
+        type: string
+      game_id:
+        type: integer
+      graphics:
+        type: string
+      memory:
+        type: string
+      network:
+        type: string
+      os:
+        type: string
+      processor:
+        type: string
+      soundcard:
+        type: string
+      storage:
+        type: string
+    type: object
+  controller.minimumSpecificationInput:
+    properties:
+      directx:
+        type: string
+      game_id:
+        type: integer
+      graphics:
+        type: string
+      memory:
+        type: string
+      network:
+        type: string
+      os:
+        type: string
+      processor:
+        type: string
+      soundcard:
+        type: string
+      storage:
+        type: string
+    type: object
+  controller.publisherInput:
+    properties:
+      name:
+        type: string
+    type: object
+  controller.ratingInput:
+    properties:
+      game_id:
+        type: integer
+      rating:
+        type: integer
+    type: object
+  controller.reviewInput:
+    properties:
+      comment:
+        type: string
+      game_id:
+        type: integer
+    type: object
+  models.AgeRatingCategory:
+    properties:
+      created_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Developer:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Game:
+    properties:
+      about:
+        type: string
+      age_rating_category_id:
+        type: integer
+      created_at:
+        type: string
+      developer_id:
+        type: integer
+      genre_id:
+        type: integer
+      id:
+        type: integer
+      publisher_id:
+        type: integer
+      title:
+        type: string
+      updated_at:
+        type: string
+      year:
+        type: integer
+    type: object
+  models.Genre:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.MaximumSpecification:
+    properties:
+      created_at:
+        type: string
+      directx:
+        type: string
+      gameID:
+        type: integer
+      graphics:
+        type: string
+      id:
+        type: integer
+      memory:
+        type: string
+      network:
+        type: string
+      os:
+        type: string
+      processor:
+        type: string
+      soundcard:
+        type: string
+      storage:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.MinimumSpecification:
+    properties:
+      created_at:
+        type: string
+      directx:
+        type: string
+      gameID:
+        type: integer
+      graphics:
+        type: string
+      id:
+        type: integer
+      memory:
+        type: string
+      network:
+        type: string
+      os:
+        type: string
+      processor:
+        type: string
+      soundcard:
+        type: string
+      storage:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Publisher:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Rating:
+    properties:
+      created_at:
+        type: string
+      gameID:
+        type: integer
+      id:
+        type: integer
+      rating:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  models.Review:
+    properties:
+      comment:
+        type: string
+      created_at:
+        type: string
+      gameID:
+        type: integer
+      id:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+paths:
+  /age-rating-categories:
+    get:
+      description: Get a list of AgeRatingCategory.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.AgeRatingCategory'
+            type: array
+      summary: Get all AgeRatingCategory.
+      tags:
+      - AgeRatingCategory
+    post:
+      description: Creating a new AgeRatingCategory.
+      parameters:
+      - description: the body to create a new AgeRatingCategory
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.ageRatingCategoryInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AgeRatingCategory'
+      security:
+      - BearerToken: []
+      summary: Create New AgeRatingCategory.
+      tags:
+      - AgeRatingCategory
+  /age-rating-categories/{id}:
+    delete:
+      description: Delete a AgeRatingCategory by id.
+      parameters:
+      - description: AgeRatingCategory id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: boolean
+            type: object
+      security:
+      - BearerToken: []
+      summary: Delete one AgeRatingCategory.
+      tags:
+      - AgeRatingCategory
+    get:
+      description: Get an AgeRatingCategory by id.
+      parameters:
+      - description: AgeRatingCategory id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AgeRatingCategory'
+      summary: Get AgeRatingCategory.
+      tags:
+      - AgeRatingCategory
+    patch:
+      description: Update AgeRatingCategory by id.
+      parameters:
+      - description: AgeRatingCategory id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update age rating category
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.ageRatingCategoryInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AgeRatingCategory'
+      security:
+      - BearerToken: []
+      summary: Update AgeRatingCategory.
+      tags:
+      - AgeRatingCategory
+  /age-rating-categories/{id}/game:
+    get:
+      description: Get all Game by AgeRatingCategoryId.
+      parameters:
+      - description: AgeRatingCategory id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Game'
+            type: array
+      summary: Get Game.
+      tags:
+      - AgeRatingCategory
+  /changepassword/{username}:
+    patch:
+      description: Change Password by username.
+      parameters:
+      - description: Username
+        in: path
+        name: username
+        required: true
+        type: string
+      - description: the body to change password
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.ChangePasswordInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Change Password.
+      tags:
+      - Auth
+  /developer:
+    get:
+      description: Get a list of Developer.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Developer'
+            type: array
+      summary: Get all Developer.
+      tags:
+      - Developer
+    post:
+      description: Creating a new Developer.
+      parameters:
+      - description: the body to create a new Developer
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.developerInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Developer'
+      security:
+      - BearerToken: []
+      summary: Create New Developer.
+      tags:
+      - Developer
+  /developer/{id}:
+    delete:
+      description: Delete a Developer by id.
+      parameters:
+      - description: Developer id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: boolean
+            type: object
+      security:
+      - BearerToken: []
+      summary: Delete one Developer.
+      tags:
+      - Developer
+    get:
+      description: Get an Developer by id.
+      parameters:
+      - description: Developer id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Developer'
+      summary: Get Developer.
+      tags:
+      - Developer
+    patch:
+      description: Update Developer by id.
+      parameters:
+      - description: Developer id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update developer
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.developerInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Developer'
+      security:
+      - BearerToken: []
+      summary: Update Developer.
+      tags:
+      - Developer
+  /developer/{id}/game:
+    get:
+      description: Get all Game by DeveloperId.
+      parameters:
+      - description: Developer id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Game'
+            type: array
+      summary: Get Game.
+      tags:
+      - Developer
+  /game:
+    get:
+      description: Get a list of Game.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Game'
+            type: array
+      summary: Get all game.
+      tags:
+      - Game
+    post:
+      description: Creating a new Game.
+      parameters:
+      - description: the body to create a new game
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.gameInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Game'
+      security:
+      - BearerToken: []
+      summary: Create New Game.
+      tags:
+      - Game
+  /game/{id}:
+    delete:
+      description: Delete a Game by id.
+      parameters:
+      - description: game id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: boolean
+            type: object
+      security:
+      - BearerToken: []
+      summary: Delete one Game.
+      tags:
+      - Game
+    get:
+      description: Get a Game by id.
+      parameters:
+      - description: game id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Game'
+      summary: Get Game.
+      tags:
+      - Game
+    patch:
+      description: Update Game by id.
+      parameters:
+      - description: game id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update an game
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.gameInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Game'
+      security:
+      - BearerToken: []
+      summary: Update Game.
+      tags:
+      - Game
+  /genre:
+    get:
+      description: Get a list of Genre.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Genre'
+            type: array
+      summary: Get all Genre.
+      tags:
+      - Genre
+    post:
+      description: Creating a new Genre.
+      parameters:
+      - description: the body to create a new Genre
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.genreInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Genre'
+      security:
+      - BearerToken: []
+      summary: Create New Genre.
+      tags:
+      - Genre
+  /genre/{id}:
+    delete:
+      description: Delete a Genre by id.
+      parameters:
+      - description: Genre id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: boolean
+            type: object
+      security:
+      - BearerToken: []
+      summary: Delete one Genre.
+      tags:
+      - Genre
+    get:
+      description: Get an Genre by id.
+      parameters:
+      - description: Genre id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Genre'
+      summary: Get Genre.
+      tags:
+      - Genre
+    patch:
+      description: Update Genre by id.
+      parameters:
+      - description: Genre id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update genre
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.genreInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Genre'
+      security:
+      - BearerToken: []
+      summary: Update Genre.
+      tags:
+      - Genre
+  /genre/{id}/game:
+    get:
+      description: Get all Game by GenreId.
+      parameters:
+      - description: Genre id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Game'
+            type: array
+      summary: Get Game.
+      tags:
+      - Genre
+  /login:
+    post:
+      description: Logging in to get jwt token to access admin or user api by roles.
+      parameters:
+      - description: the body to login a user
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.LoginInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Login as as user.
+      tags:
+      - Auth
+  /maximumspecification:
+    get:
+      description: Get a list of MaximumSpecification.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.MaximumSpecification'
+            type: array
+      summary: Get all MaximumSpecification.
+      tags:
+      - MaximumSpecification
+    post:
+      description: Creating a new MaximumSpecification.
+      parameters:
+      - description: the body to create a new MaximumSpecification
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.maximumSpecificationInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MaximumSpecification'
+      security:
+      - BearerToken: []
+      summary: Create New MaximumSpecification.
+      tags:
+      - MaximumSpecification
+  /maximumspecification/{id}:
+    delete:
+      description: Delete a MaximumSpecification by id.
+      parameters:
+      - description: MaximumSpecification id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: boolean
+            type: object
+      security:
+      - BearerToken: []
+      summary: Delete one MaximumSpecification.
+      tags:
+      - MaximumSpecification
+    get:
+      description: Get an MaximumSpecification by id.
+      parameters:
+      - description: MaximumSpecification id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MaximumSpecification'
+      summary: Get MaximumSpecification.
+      tags:
+      - MaximumSpecification
+    patch:
+      description: Update MaximumSpecification by id.
+      parameters:
+      - description: MaximumSpecification id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update MaximumSpecification
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.maximumSpecificationInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MaximumSpecification'
+      security:
+      - BearerToken: []
+      summary: Update MaximumSpecification.
+      tags:
+      - MaximumSpecification
+  /minimumspecification:
+    get:
+      description: Get a list of MinimumSpecification.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.MinimumSpecification'
+            type: array
+      summary: Get all MinimumSpecification.
+      tags:
+      - MinimumSpecification
+    post:
+      description: Creating a new MinimumSpecification.
+      parameters:
+      - description: the body to create a new MinimumSpecification
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.minimumSpecificationInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MinimumSpecification'
+      security:
+      - BearerToken: []
+      summary: Create New MinimumSpecification.
+      tags:
+      - MinimumSpecification
+  /minimumspecification/{id}:
+    delete:
+      description: Delete a MinimumSpecification by id.
+      parameters:
+      - description: MinimumSpecification id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: boolean
+            type: object
+      security:
+      - BearerToken: []
+      summary: Delete one MinimumSpecification.
+      tags:
+      - MinimumSpecification
+    get:
+      description: Get an MinimumSpecification by id.
+      parameters:
+      - description: MinimumSpecification id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MinimumSpecification'
+      summary: Get MinimumSpecification.
+      tags:
+      - MinimumSpecification
+    patch:
+      description: Update MinimumSpecification by id.
+      parameters:
+      - description: MinimumSpecification id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update MinimumSpecification
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.minimumSpecificationInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MinimumSpecification'
+      security:
+      - BearerToken: []
+      summary: Update MinimumSpecification.
+      tags:
+      - MinimumSpecification
+  /publisher:
+    get:
+      description: Get a list of Publisher.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Publisher'
+            type: array
+      summary: Get all Publisher.
+      tags:
+      - Publisher
+    post:
+      description: Creating a new Publisher.
+      parameters:
+      - description: the body to create a new Publisher
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.publisherInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Publisher'
+      security:
+      - BearerToken: []
+      summary: Create New Publisher.
+      tags:
+      - Publisher
+  /publisher/{id}:
+    delete:
+      description: Delete a Publisher by id.
+      parameters:
+      - description: Publisher id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: boolean
+            type: object
+      security:
+      - BearerToken: []
+      summary: Delete one Publisher.
+      tags:
+      - Publisher
+    get:
+      description: Get an Publisher by id.
+      parameters:
+      - description: Publisher id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Publisher'
+      summary: Get Publisher.
+      tags:
+      - Publisher
+    patch:
+      description: Update Publisher by id.
+      parameters:
+      - description: Publisher id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update Publisher
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.publisherInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Publisher'
+      security:
+      - BearerToken: []
+      summary: Update Publisher.
+      tags:
+      - Publisher
+  /publisher/{id}/game:
+    get:
+      description: Get all Game by PublisherId.
+      parameters:
+      - description: Publisher id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Game'
+            type: array
+      summary: Get Game.
+      tags:
+      - Publisher
+  /ratinggame:
+    get:
+      description: Get a list of RatingGame.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Rating'
+            type: array
+      summary: Get all RatingGame.
+      tags:
+      - RatingGame
+    post:
+      description: Creating a new RatingGame.
+      parameters:
+      - description: the body to create a new game
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.ratingInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Game'
+      security:
+      - BearerToken: []
+      summary: Create New RatingGame.
+      tags:
+      - RatingGame
+  /ratinggame/{id}:
+    delete:
+      description: Delete a RatingGame by id.
+      parameters:
+      - description: ratinggame id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: boolean
+            type: object
+      security:
+      - BearerToken: []
+      summary: Delete one RatingGame.
+      tags:
+      - RatingGame
+    get:
+      description: Get a RatingGame by id.
+      parameters:
+      - description: ratinggame id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Rating'
+      summary: Get RatingGame.
+      tags:
+      - RatingGame
+    patch:
+      description: Update RatingGame by id.
+      parameters:
+      - description: ratinggame id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update an RatingGame
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.ratingInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Rating'
+      security:
+      - BearerToken: []
+      summary: Update RatingGame.
+      tags:
+      - RatingGame
+  /register:
+    post:
+      description: registering a user from public access.
+      parameters:
+      - description: the body to register a user
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.RegisterInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Register a user.
+      tags:
+      - Auth
+  /reviewgame:
+    get:
+      description: Get a list of ReviewGame.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Review'
+            type: array
+      summary: Get all ReviewGame.
+      tags:
+      - ReviewGame
+    post:
+      description: Creating a new ReviewGame.
+      parameters:
+      - description: the body to create a new reviewgame
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.reviewInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Review'
+      security:
+      - BearerToken: []
+      summary: Create New ReviewGame.
+      tags:
+      - ReviewGame
+  /reviewgame/{id}:
+    delete:
+      description: Delete a ReviewGame by id.
+      parameters:
+      - description: reviewgame id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: boolean
+            type: object
+      security:
+      - BearerToken: []
+      summary: Delete one ReviewGame.
+      tags:
+      - ReviewGame
+    get:
+      description: Get a ReviewGame by id.
+      parameters:
+      - description: reviewgame id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Review'
+      summary: Get ReviewGame.
+      tags:
+      - ReviewGame
+    patch:
+      description: Update ReviewGame by id.
+      parameters:
+      - description: reviewgame id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update an ReviewGame
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controller.reviewInput'
+      - description: 'Authorization. How to input in swagger : ''Bearer <insert_your_token_here>'''
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Review'
+      security:
+      - BearerToken: []
+      summary: Update ReviewGame.
+      tags:
+      - ReviewGame
+swagger: "2.0"
